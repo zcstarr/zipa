@@ -6,7 +6,7 @@
 
 ## Data
 
-All data are distributed in the `shar` format, similar to `webdataset` format but with indexes. It can be directly loaded with `lhotse`. 
+All data are distributed in the scalable `shar` format, similar to `webdataset` format but with indexes. It can be easily loaded with `lhotse` library.  
 
  - [All processed data](https://huggingface.co/collections/anyspeech/ipapack-raw-673c2d345deec72e82e28a3b)
  - [Training data only](https://huggingface.co/collections/anyspeech/ipa-pack-train-6838a6804a3a71a91794a801)
