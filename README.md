@@ -1,5 +1,7 @@
 # ZIPA: A family of efficient speech models for multilingual phone recognition - ACL 2025
 
+[Paper](https://arxiv.org/abs/2505.23170)
+
 ## Inference
 
 ### Pretrained models
