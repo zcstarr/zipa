@@ -2,6 +2,10 @@
 
 [Paper](https://arxiv.org/abs/2505.23170)
 
+## Environment
+
+A pre-built apptainer container can be found [here](https://huggingface.co/datasets/anyspeech/ipapack_plus_meta/blob/main/pytorch2.4.0-cuda12.4-icefall-container.sif).
+
 ## Inference
 
 ### Pretrained models
