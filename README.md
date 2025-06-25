@@ -1,5 +1,7 @@
 # ZIPA: A family of efficient speech models for multilingual phone recognition - ACL 2025
 
+Code and instructions will be updated before the ACL conference. 
+
 [Paper](https://arxiv.org/abs/2505.23170)
 
 ## Environment
@@ -12,7 +14,15 @@ apptainer build icefall.sif icefall_container.def
 ```
 
 ## Inference
+```
+python zipformer_crctc/ctc_decode.py --iter 800000 --avg 10 --exp-dir /scratch/lingjzhu_root/lingjzhu1/lingjzhu/zipformer_exp/zipformer_large_crctc_75_pretrained  \
+--use-transducer False --use-ctc True  --use-cr-ctc True --max-duration 600 --decoding-method ctc-greedy-search \
+--bpe-model ipa_simplified/unigram_127.model --num-workers 1 --num-encoder-layers 4,3,4,5,4,4 \
+--feedforward-dim 768,768,1536,2048,1536,768 --encoder-dim 512,512,768,1024,768,512 \
+--encoder-unmasked-dim 192,192,256,320,256,192 --decoder-dim 1024 --joiner-dim 1024 \
+--query-head-dim 64 --value-head-dim 48 --num-heads 6,6,6,8,6,6 
 
+```
 ### Pretrained models
 
 ## Data
