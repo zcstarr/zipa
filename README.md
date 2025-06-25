@@ -6,6 +6,11 @@
 
 A pre-built apptainer container can be found [here](https://huggingface.co/datasets/anyspeech/ipapack_plus_meta/blob/main/pytorch2.4.0-cuda12.4-icefall-container.sif).
 
+You can build an apptainer (which works without root access on HPC) with the given definition file.
+```
+apptainer build icefall.sif icefall_container.def
+```
+
 ## Inference
 
 ### Pretrained models
