@@ -2,6 +2,8 @@
 
 [Paper](https://aclanthology.org/2025.acl-long.961/)
 
+This repo is built upon the [Icefall](https://github.com/k2-fsa/icefall) library in Next-gen Kaldi. The usage is almost the same. 
+
 ## Environment
 
 A pre-built apptainer container can be found [here](https://huggingface.co/datasets/anyspeech/ipapack_plus_meta/blob/main/pytorch2.4.0-cuda12.4-icefall-container.sif).
@@ -12,6 +14,7 @@ apptainer build icefall.sif icefall_container.def
 ```
 
 ## Inference
+You might need to modify some paths in the `data_module.py` to point to your local data. 
 ```
 python zipformer_crctc/ctc_decode.py --iter 800000 --avg 10 --exp-dir /scratch/lingjzhu_root/lingjzhu1/lingjzhu/zipformer_exp/zipformer_large_crctc_75_pretrained  \
 --use-transducer False --use-ctc True  --use-cr-ctc True --max-duration 600 --decoding-method ctc-greedy-search \
@@ -23,6 +26,8 @@ python zipformer_crctc/ctc_decode.py --iter 800000 --avg 10 --exp-dir /scratch/l
 ```
 ### Pretrained models
 The huggingface page contains the last 10 checkpoints. The inference code will average across 10 checkpoints to make inference. 
+After you download checkpoints to your local folder, you can use the inference code. `--exp-dir` should point to your local checkpoint folders.
+`--iter` should be the last iteration as specified in the checkpoint names. `--avg 10` implies that the last 10 checkpoints will be averaged. Please don't change this argument, as we have only provided the last 10 checkpoints. 
 
 | Model               | Params | Tokens | Checkpoints |
 |---------------------|--------|--------|-------------|
@@ -71,6 +76,7 @@ cuts_full = CutSet.from_shar(
 ```
 
 ## Training
+You might need to modify some paths in the `data_module.py` to point to your local data. 
 Training a Zipformer-Large CRCTC model
 
 ```
