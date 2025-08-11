@@ -1,8 +1,6 @@
 # ZIPA: A family of efficient speech models for multilingual phone recognition - ACL 2025
 
-Code and instructions will be updated before the ACL conference. 
-
-[Paper](https://arxiv.org/abs/2505.23170)
+[Paper](https://aclanthology.org/2025.acl-long.961/)
 
 ## Environment
 
@@ -24,6 +22,26 @@ python zipformer_crctc/ctc_decode.py --iter 800000 --avg 10 --exp-dir /scratch/l
 
 ```
 ### Pretrained models
+The huggingface page contains the last 10 checkpoints. The inference code will average across 10 checkpoints to make inference. 
+
+| Model               | Params | Tokens | Checkpoints |
+|---------------------|--------|--------|-------------|
+| Zipa-T-small        | 65M    | 300k   | [link](https://huggingface.co/anyspeech/zipa-t-s)        |
+| Zipa-T-large        | 302M   | 300k   | [link](https://huggingface.co/anyspeech/zipa-t-l)        |
+| Zipa-T-small        | 65M    | 500k   | [link](https://huggingface.co/anyspeech/zipa-t-s)        |
+| Zipa-T-large        | 302M   | 500k   | [link](https://huggingface.co/anyspeech/zipa-t-l)        |
+| Zipa-Cr-small       | 64M    | 300k   | [link](https://huggingface.co/anyspeech/zipa-cr-s/tree/main)        |
+| Zipa-Cr-large       | 300M   | 300k   | [link](https://huggingface.co/anyspeech/zipa-cr-l)        |
+| Zipa-Cr-small       | 64M    | 500k   | [link](https://huggingface.co/anyspeech/zipa-cr-s/tree/main)        |
+| Zipa-Cr-large       | 300M   | 500k   | [link](https://huggingface.co/anyspeech/zipa-cr-l)        |
+| Zipa-Cr-Ns-small    | 64M    | 700k   | [link](https://huggingface.co/anyspeech/zipa-cr-ns-s)        |
+| Zipa-Cr-Ns-large    | 300M   | 800k   | [link](https://huggingface.co/anyspeech/zipa-cr-ns-l)        |
+| *No diacritics*  |        |        |             |
+| Zipa-Cr-Ns-small    | 64M    | 700k   | [link](https://huggingface.co/anyspeech/zipa-cr-ns-s-no-diacritics/tree/main)        |
+| Zipa-Cr-Ns-large    | 300M   | 780k   | [link](https://huggingface.co/anyspeech/zipa-cr-ns-l-no-diacritics)        |
+
+
+
 
 ## Data
 
