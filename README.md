@@ -29,7 +29,7 @@ The huggingface page contains the last 10 checkpoints. The inference code will a
 After you download checkpoints to your local folder, you can use the inference code. `--exp-dir` should point to your local checkpoint folders.
 `--iter` should be the last iteration as specified in the checkpoint names. `--avg 10` implies that the last 10 checkpoints will be averaged. Please don't change this argument, as we have only provided the last 10 checkpoints. 
 
-| Model               | Params | Tokens | Raw Checkpoints | Final Averaged Checkpoint |   
+| Model               | Params | Training Steps | Raw Checkpoints | Final Averaged Checkpoint |   
 |---------------------|--------|--------|-------------|-------------|
 | Zipa-T-small        | 65M    | 300k   | [link](https://huggingface.co/anyspeech/zipa-t-s)        | [anyspeech/zipa-small-noncausal-300k](https://huggingface.co/anyspeech/zipa-small-noncausal-300k) |
 | Zipa-T-large        | 302M   | 300k   | [link](https://huggingface.co/anyspeech/zipa-t-l)        | [anyspeech/zipa-small-noncausal-300k](https://huggingface.co/anyspeech/zipa-small-noncausal-300k) |
