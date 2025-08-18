@@ -37,13 +37,13 @@ After you download checkpoints to your local folder, you can use the inference c
 | Zipa-T-large        | 302M   | 500k   | [link](https://huggingface.co/anyspeech/zipa-t-l)        | [anyspeech/zipa-small-noncausal-500k](https://huggingface.co/anyspeech/zipa-small-noncausal-500k) |
 | Zipa-Cr-small       | 64M    | 300k   | [link](https://huggingface.co/anyspeech/zipa-cr-s/tree/main)        | [anyspeech/zipa-small-crctc-300k](https://huggingface.co/anyspeech/zipa-small-crctc-300k) |
 | Zipa-Cr-large       | 300M   | 300k   | [link](https://huggingface.co/anyspeech/zipa-cr-l)        | [anyspeech/zipa-large-crctc-300k](https://huggingface.co/anyspeech/zipa-large-crctc-300k) |
-| Zipa-Cr-small       | 64M    | 500k   | [link](https://huggingface.co/anyspeech/zipa-cr-s/tree/main)        | [[anyspeech/zipa-small-crctc-500k](https://huggingface.co/anyspeech/zipa-small-crctc-500k)] |
+| Zipa-Cr-small       | 64M    | 500k   | [link](https://huggingface.co/anyspeech/zipa-cr-s/tree/main)        | [anyspeech/zipa-small-crctc-500k](https://huggingface.co/anyspeech/zipa-small-crctc-500k) |
 | Zipa-Cr-large       | 300M   | 500k   | [link](https://huggingface.co/anyspeech/zipa-cr-l)        | [anyspeech/zipa-large-crctc-500k](https://huggingface.co/anyspeech/zipa-large-crctc-500k) | 
-| Zipa-Cr-Ns-small    | 64M    | 700k   | [link](https://huggingface.co/anyspeech/zipa-cr-ns-s)        |
-| Zipa-Cr-Ns-large    | 300M   | 800k   | [link](https://huggingface.co/anyspeech/zipa-cr-ns-l)        |
+| Zipa-Cr-Ns-small    | 64M    | 700k   | [link](https://huggingface.co/anyspeech/zipa-cr-ns-s)        | [anyspeech/zipa-small-crctc-ns-700k](https://huggingface.co/anyspeech/zipa-small-crctc-ns-700k) |
+| Zipa-Cr-Ns-large    | 300M   | 800k   | [link](https://huggingface.co/anyspeech/zipa-cr-ns-l)        | [anyspeech/zipa-large-crctc-ns-800k](https://huggingface.co/anyspeech/zipa-large-crctc-ns-800k) | 
 | *No diacritics*  |        |        |             |
-| Zipa-Cr-Ns-small    | 64M    | 700k   | [link](https://huggingface.co/anyspeech/zipa-cr-ns-s-no-diacritics/tree/main)        |
-| Zipa-Cr-Ns-large    | 300M   | 780k   | [link](https://huggingface.co/anyspeech/zipa-cr-ns-l-no-diacritics)        |
+| Zipa-Cr-Ns-small    | 64M    | 700k   | [link](https://huggingface.co/anyspeech/zipa-cr-ns-s-no-diacritics/tree/main)        | [anyspeech/zipa-small-crctc-ns-no-diacritics-700k](https://huggingface.co/anyspeech/zipa-small-crctc-ns-no-diacritics-700k) | 
+| Zipa-Cr-Ns-large    | 300M   | 780k   | [link](https://huggingface.co/anyspeech/zipa-cr-ns-l-no-diacritics)        | [anyspeech/zipa-large-crctc-ns-no-diacritics-780k](https://huggingface.co/anyspeech/zipa-large-crctc-ns-no-diacritics-780k) | 
 
 
 
