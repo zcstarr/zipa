@@ -35,10 +35,10 @@ After you download checkpoints to your local folder, you can use the inference c
 | Zipa-T-large        | 302M   | 300k   | [link](https://huggingface.co/anyspeech/zipa-t-l)        | [anyspeech/zipa-small-noncausal-300k](https://huggingface.co/anyspeech/zipa-small-noncausal-300k) |
 | Zipa-T-small        | 65M    | 500k   | [link](https://huggingface.co/anyspeech/zipa-t-s)        | [anyspeech/zipa-small-noncausal-500k](https://huggingface.co/anyspeech/zipa-small-noncausal-500k) |
 | Zipa-T-large        | 302M   | 500k   | [link](https://huggingface.co/anyspeech/zipa-t-l)        | [anyspeech/zipa-small-noncausal-500k](https://huggingface.co/anyspeech/zipa-small-noncausal-500k) |
-| Zipa-Cr-small       | 64M    | 300k   | [link](https://huggingface.co/anyspeech/zipa-cr-s/tree/main)        |
-| Zipa-Cr-large       | 300M   | 300k   | [link](https://huggingface.co/anyspeech/zipa-cr-l)        |
-| Zipa-Cr-small       | 64M    | 500k   | [link](https://huggingface.co/anyspeech/zipa-cr-s/tree/main)        |
-| Zipa-Cr-large       | 300M   | 500k   | [link](https://huggingface.co/anyspeech/zipa-cr-l)        |
+| Zipa-Cr-small       | 64M    | 300k   | [link](https://huggingface.co/anyspeech/zipa-cr-s/tree/main)        | [anyspeech/zipa-small-crctc-300k](https://huggingface.co/anyspeech/zipa-small-crctc-300k) |
+| Zipa-Cr-large       | 300M   | 300k   | [link](https://huggingface.co/anyspeech/zipa-cr-l)        | [anyspeech/zipa-large-crctc-300k](https://huggingface.co/anyspeech/zipa-large-crctc-300k) |
+| Zipa-Cr-small       | 64M    | 500k   | [link](https://huggingface.co/anyspeech/zipa-cr-s/tree/main)        | [[anyspeech/zipa-small-crctc-500k](https://huggingface.co/anyspeech/zipa-small-crctc-500k)] |
+| Zipa-Cr-large       | 300M   | 500k   | [link](https://huggingface.co/anyspeech/zipa-cr-l)        | [anyspeech/zipa-large-crctc-500k](https://huggingface.co/anyspeech/zipa-large-crctc-500k) | 
 | Zipa-Cr-Ns-small    | 64M    | 700k   | [link](https://huggingface.co/anyspeech/zipa-cr-ns-s)        |
 | Zipa-Cr-Ns-large    | 300M   | 800k   | [link](https://huggingface.co/anyspeech/zipa-cr-ns-l)        |
 | *No diacritics*  |        |        |             |
