@@ -41,6 +41,8 @@ Here are some simple instructions:
  2. Perform inference (with CRCTC model example below). You can directly pass a list of audio arrays. Batching and padding are supported. Greedy decoding is used for all models. 
     ```
     import torchaudio
+    from zipa_ctc_inference import initialize_model
+    
     # specify the path to model weights and tokenizers
     model_path = "zipformer_weights/zipa_large_crctc_500000_avg10.pth"
     bpe_model_path = "ipa_simplified/unigram_127.model"
