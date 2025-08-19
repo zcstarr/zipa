@@ -14,6 +14,7 @@ apptainer build icefall.sif icefall_container.def
 ```
 
 ## Inference
+### Batch inference with detailed error logs
 You might need to modify some paths in the `data_module.py` to point to your local data. 
 ```
 python zipformer_crctc/ctc_decode.py --iter 800000 --avg 10 --exp-dir /scratch/lingjzhu_root/lingjzhu1/lingjzhu/zipformer_exp/zipformer_large_crctc_75_pretrained  \
@@ -24,6 +25,11 @@ python zipformer_crctc/ctc_decode.py --iter 800000 --avg 10 --exp-dir /scratch/l
 --query-head-dim 64 --value-head-dim 48 --num-heads 6,6,6,8,6,6 
 
 ```
+
+### Simple inference
+
+Coming soon.
+
 ### Pretrained models
 The huggingface page contains the last 10 checkpoints. The inference code will average across 10 checkpoints to make inference. 
 After you download checkpoints to your local folder, you can use the inference code. `--exp-dir` should point to your local checkpoint folders.
