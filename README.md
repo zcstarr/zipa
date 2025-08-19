@@ -13,6 +13,12 @@ You can build an apptainer (which works without root access on HPC) with the giv
 apptainer build icefall.sif icefall_container.def
 ```
 
+Generally speaking, packages below are required:
+  1. `torch torchaudio torchvision`
+  2. `lhotse` (for audio preprocessing)
+  3. `icefall` and `k2`. They must match the torch version and cuda version.
+  4. `huggingface_hub` (for downloading models and data)
+     
 ## Inference
 ### Batch inference with detailed error logs
 You might need to modify some paths in the `data_module.py` to point to your local data. 
@@ -28,7 +34,27 @@ python zipformer_crctc/ctc_decode.py --iter 800000 --avg 10 --exp-dir /scratch/l
 
 ### Simple inference
 
-Coming soon.
+Please check out `zipa_ctc_inference.py` and `zipa_transducer_inference.py` for example usage.
+Here are some simple instructions:
+ 1. Download models from Huggingface Hub (see below). Use `zipa_ctc_inference.py` for CTCTC models and `zipa_transducer_inference.py` for transducer models.
+ 2. Perform inference (with CRCTC model below). You can directly pass a list of audio arrays. Batching and padding are supported. Greedy decoding is used for all models. 
+    ```
+    import torchaudio
+    # specify the path to model weights and tokenizers
+    model_path = "zipformer_weights/zipa_large_crctc_500000_avg10.pth"
+    bpe_model_path = "ipa_simplified/unigram_127.model"
+
+    # initialize model
+    model = initialize_model(model_path, bpe_model_path)
+
+    # Generate a dummy audio batch (1 sample of 2 seconds of silence)
+    sample_rate = 16000
+    dummy_audio = [torch.zeros(int(sample_rate * 2)),torch.zeros(int(sample_rate * 2)),torch.zeros(int(sample_rate * 2))] 
+
+    # Run inference
+    output = model.inference(dummy_audio)
+    print("Predicted transcript:", output)
+    ``` 
 
 ### Pretrained models
 The huggingface page contains the last 10 checkpoints. The inference code will average across 10 checkpoints to make inference. 
