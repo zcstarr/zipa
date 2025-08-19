@@ -5,6 +5,7 @@
 This repo is built upon the [Icefall](https://github.com/k2-fsa/icefall) library in Next-gen Kaldi. The usage is almost the same. 
 
 ## Environment
+Please refer to `icefall_container.def` for a complete setup of the environment.
 
 A pre-built apptainer container can be found [here](https://huggingface.co/datasets/anyspeech/ipapack_plus_meta/blob/main/pytorch2.4.0-cuda12.4-icefall-container.sif).
 
@@ -19,6 +20,8 @@ Generally speaking, packages below are required for minimal usage:
   3. `icefall` and `k2`. They must exactly match the torch version and cuda version. Instructions are available [here](https://icefall.readthedocs.io/en/latest/installation/index.html).
   4. `huggingface_hub` (for downloading models and data)
   5. Optional: `kaldifeat`. If you need to train from scratch, this library is also required. See instructions [here](https://csukuangfj.github.io/kaldifeat/installation/from_wheels.html). It must match the torch and cuda versions strictly.
+
+
      
 ## Inference
 ### Batch inference with detailed error logs
