@@ -48,13 +48,14 @@ Here are some simple instructions:
     # initialize model
     model = initialize_model(model_path, bpe_model_path)
 
-    # Generate a dummy audio batch (1 sample of 2 seconds of silence)
+    # Generate a dummy audio batch (3 samples of 2 seconds of silence)
+    # You can pass a list of audio arrays with any length. Batching, padding, and unpadding will be handled by the code. 
     sample_rate = 16000
     dummy_audio = [torch.zeros(int(sample_rate * 2)),torch.zeros(int(sample_rate * 2)),torch.zeros(int(sample_rate * 2))] 
 
     # Run inference
     output = model.inference(dummy_audio)
-    print("Predicted transcript:", output)
+    print("Predicted transcript:", output) # A list of predicted phone sequence. 
     ``` 
 
 ### Pretrained models
