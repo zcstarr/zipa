@@ -13,11 +13,12 @@ You can build an apptainer (which works without root access on HPC) with the giv
 apptainer build icefall.sif icefall_container.def
 ```
 
-Generally speaking, packages below are required:
+Generally speaking, packages below are required for minimal usage:
   1. `torch torchaudio torchvision`
   2. `lhotse` (for audio preprocessing)
-  3. `icefall` and `k2`. They must match the torch version and cuda version.
+  3. `icefall` and `k2`. They must exactly match the torch version and cuda version. Instructions are available [here](https://icefall.readthedocs.io/en/latest/installation/index.html).
   4. `huggingface_hub` (for downloading models and data)
+  5. Optional: `kaldifeat`. If you need to train from scratch, this library is also required. See instructions [here](https://csukuangfj.github.io/kaldifeat/installation/from_wheels.html). It must match the torch and cuda versions strictly.
      
 ## Inference
 ### Batch inference with detailed error logs
