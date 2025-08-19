@@ -35,9 +35,10 @@ python zipformer_crctc/ctc_decode.py --iter 800000 --avg 10 --exp-dir /scratch/l
 ### Simple inference
 
 Please check out `zipa_ctc_inference.py` and `zipa_transducer_inference.py` for example usage.
+
 Here are some simple instructions:
- 1. Download models from Huggingface Hub (see below). Use `zipa_ctc_inference.py` for CTCTC models and `zipa_transducer_inference.py` for transducer models.
- 2. Perform inference (with CRCTC model below). You can directly pass a list of audio arrays. Batching and padding are supported. Greedy decoding is used for all models. 
+ 1. Download models from Huggingface Hub (see Final Averaged Checkpoint column below). Use `zipa_ctc_inference.py` for CTCTC models and `zipa_transducer_inference.py` for transducer models.
+ 2. Perform inference (with CRCTC model example below). You can directly pass a list of audio arrays. Batching and padding are supported. Greedy decoding is used for all models. 
     ```
     import torchaudio
     # specify the path to model weights and tokenizers
