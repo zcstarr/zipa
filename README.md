@@ -106,7 +106,7 @@ data-shar
 ├── recording.000000.tar
 ```
 Then you can construct a data loader with `lhotse`. Please refer to the `lhotse` documentation and [their shar tutorial](https://colab.research.google.com/github/lhotse-speech/lhotse/blob/master/examples/04-lhotse-shar.ipynb) for further details. 
-```
+```python
 cuts_full = CutSet.from_shar(
     fields={
         "cuts": ["data-shar/cuts.000000.jsonl.gz"],
