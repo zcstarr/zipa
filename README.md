@@ -26,7 +26,7 @@ Generally speaking, packages below are required for minimal usage:
 ## Inference
 ### Batch inference with detailed error logs
 You might need to modify some paths in the `data_module.py` to point to your local data. 
-```python  
+```  
 python zipformer_crctc/ctc_decode.py --iter 800000 --avg 10 --exp-dir /scratch/lingjzhu_root/lingjzhu1/lingjzhu/zipformer_exp/zipformer_large_crctc_75_pretrained  \
 --use-transducer False --use-ctc True  --use-cr-ctc True --max-duration 600 --decoding-method ctc-greedy-search \
 --bpe-model ipa_simplified/unigram_127.model --num-workers 1 --num-encoder-layers 4,3,4,5,4,4 \
@@ -43,7 +43,7 @@ Please check out `zipa_ctc_inference.py` and `zipa_transducer_inference.py` for 
 Here are some simple instructions:
  1. Download models from Huggingface Hub (see Final Averaged Checkpoint column below). Use `zipa_ctc_inference.py` for CTCTC models and `zipa_transducer_inference.py` for transducer models.
  2. Perform inference (with CRCTC model example below). You can directly pass a list of audio arrays. Batching and padding are supported. Greedy decoding is used for all models. 
-    ```
+    ```python
     import torchaudio
     from zipa_ctc_inference import initialize_model
     
