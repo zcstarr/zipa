@@ -56,7 +56,8 @@ Here are some simple instructions:
     model = initialize_model(model_path, bpe_model_path)
 
     # Generate a dummy audio batch (3 samples of 2 seconds of silence)
-    # You can pass a list of audio arrays with any length. Batching, padding, and unpadding will be handled by the code. 
+    # You can pass a list of audio arrays with any length.
+    # Batching, padding, and unpadding will be handled by the code. 
     sample_rate = 16000
     dummy_audio = [torch.zeros(int(sample_rate * 2)),
                    torch.zeros(int(sample_rate * 2)),
