@@ -42,7 +42,8 @@ Please check out `zipa_ctc_inference.py` and `zipa_transducer_inference.py` for 
 
 Here are some simple instructions:
  1. Download models from Huggingface Hub (see Final Averaged Checkpoint column below). Use `zipa_ctc_inference.py` for CTCTC models and `zipa_transducer_inference.py` for transducer models.
- 2. Perform inference (with CRCTC model example below). You can directly pass a list of audio arrays. Batching and padding are supported. Greedy decoding is used for all models. 
+ 2. Perform inference. You can directly pass a list of audio arrays. Batching and padding are supported. Greedy decoding is used for all models. 
+    - CRCTC Model
     ```python
     import torchaudio
     from zipa_ctc_inference import initialize_model
@@ -64,7 +65,7 @@ Here are some simple instructions:
     print("Predicted transcript:", output) # A list of predicted phone sequence. 
     ``` 
 
-
+    - Transducer model
     ```python
     import torchaudio
     from zipa_transducer_inference import initialize_model
