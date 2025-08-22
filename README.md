@@ -64,6 +64,25 @@ Here are some simple instructions:
     print("Predicted transcript:", output) # A list of predicted phone sequence. 
     ``` 
 
+
+    ```python
+    import torchaudio
+    from zipa_transducer_inference import initialize_model
+    
+    model_path = "zipformer_weights/zipa_large_noncausal_500000_avg10.pth"
+    bpe_model_path = "ipa_simplified/unigram_127.model"
+
+    model = initialize_model(model_path, bpe_model_path)
+
+    # Generate a dummy audio batch (1 sample of 2 seconds of silence)
+    sample_rate = 16000
+    dummy_audio = [torch.zeros(int(sample_rate * 2)),torch.zeros(int(sample_rate * 2)),torch.zeros(int(sample_rate * 2))]  # 2-second silent audio
+
+    # Run inference
+    output = model.inference(dummy_audio)
+    print("Predicted transcript:", output)
+    
+    ```
 ### Pretrained models
 The huggingface page contains the last 10 checkpoints. The inference code will average across 10 checkpoints to make inference. 
 After you download checkpoints to your local folder, you can use the inference code. `--exp-dir` should point to your local checkpoint folders.
