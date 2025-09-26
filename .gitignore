@@ -169,3 +169,7 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+zipformer_weights/
+ipa_simplified/
+LLMLOG.MD
+.DS_Store

@@ -1,17 +1,14 @@
+import sentencepiece as spm
+from lhotse.features.kaldi.extractors import Fbank
+from icefall.decode import ctc_greedy_search
+from icefall.utils import AttributeDict
+from zipformer_crctc.train import get_model
+import torch.nn as nn
+import torch
 import sys
 import os
-zipformer_path = os.path.abspath("./zipformer_crctc")
+earipformer_path = os.path.abspath("./zipformer_crctc")
 sys.path.insert(0, zipformer_path)
-
-import torch
-import torch.nn as nn
-
-from zipformer_crctc.train import get_model
-from icefall.utils import AttributeDict
-from icefall.decode import ctc_greedy_search
-
-from lhotse.features.kaldi.extractors import Fbank
-import sentencepiece as spm
 
 
 small_params = AttributeDict(
@@ -105,16 +102,18 @@ large_params = AttributeDict(
     }
 )
 
+
 class ZIPA_CTC(nn.Module):
 
     def __init__(self, params):
         super().__init__()
-        
+
         self.encoder = get_model(params)
-        self.encoder.load_state_dict(torch.load(params.model_path),strict=True)
+        self.encoder.load_state_dict(
+            torch.load(params.model_path), strict=True)
         self.encoder.to(params.device)
         self.encoder.eval()
-        
+
         self.bpe_model = spm.SentencePieceProcessor()
         self.bpe_model.load(params.bpe_model)
 
@@ -123,9 +122,10 @@ class ZIPA_CTC(nn.Module):
 
     def predict(self, feature, feature_lens):
 
-        encoder_out, encoder_out_lens = self.encoder.forward_encoder(feature.to(self.device), feature_lens.to(self.device))
+        encoder_out, encoder_out_lens = self.encoder.forward_encoder(
+            feature.to(self.device), feature_lens.to(self.device))
         ctc_output = self.encoder.ctc_output(encoder_out)  # (N, T, C)
-        
+
         hyps = ctc_greedy_search(ctc_output, encoder_out_lens)
         # hyps is a list of str, e.g., ['xxx yyy zzz', ...]
         hyps = self.bpe_model.decode(hyps)
@@ -136,50 +136,52 @@ class ZIPA_CTC(nn.Module):
 
     def get_fbank(self, audio):
         features = self.fbank.extract_batch(
-                        audio, sampling_rate=16000
-                    )
+            audio, sampling_rate=16000
+        )
         feature_lens = torch.tensor([len(feature) for feature in features])
         features = torch.nn.utils.rnn.pad_sequence(features, batch_first=True)
         return features, feature_lens
-
 
     def inference(self, audio):
 
         features, feature_lens = self.get_fbank(audio)
         hyps = self.predict(features, feature_lens)
-        
+
         return hyps
 
 
 def initialize_model(model_path, bpe_model):
-    
+
     if "small" in model_path:
-        params =  small_params
+        params = small_params
     elif "large" in model_path:
         params = large_params
     else:
         raise ValueError("model_name must contain 'small' or 'large'")
-        
+
     params.bpe_model = bpe_model
     params.model_path = model_path
-    params.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    params.device = torch.device(
+        "cuda" if torch.cuda.is_available() else "cpu")
 
     return ZIPA_CTC(params)
 
-    
+
 if __name__ == "__main__":
 
     import torchaudio
 
-   
-    model_path = "zipformer_weights/zipa_large_crctc_500000_avg10.pth"
+    # model_path = "zipformer_weights/zipa_large_crctc_500000_avg10.pth"
+    model_path = "zipformer_weights/zipa_large_crct_0.5_scale_800000_avg10.pth"
     bpe_model_path = "ipa_simplified/unigram_127.model"
 
     model = initialize_model(model_path, bpe_model_path)
 
     # Generate a dummy audio batch (1 sample of 2 seconds of silence)
     sample_rate = 16000
-    dummy_audio = [torch.zeros(int(sample_rate * 2)),torch.zeros(int(sample_rate * 2)),torch.zeros(int(sample_rate * 2))]  # 2-second silent audio
+    dummy_audio = [torch.zeros(int(sample_rate * 2)), torch.zeros(
+        # 2-second silent audio
+        int(sample_rate * 2)), torch.zeros(int(sample_rate * 2))]
 
     # Run inference
     output = model.inference(dummy_audio)
