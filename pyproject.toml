@@ -22,7 +22,7 @@ classifiers = [
 requires-python = ">=3.12"
 dependencies = [
     "torchaudio>=2.2.0",
-    "k2 @ file:///Volumes/ext_storage/src/zipa/k2-1.24.4.dev20250926+cpu.torch2.2.2-cp312-cp312-macosx_15_0_universal2.whl",
+    "k2 @ https://github.com/zcstarr/zipa/raw/refs/heads/main/k2-1.24.4.dev20250926+cpu.torch2.2.2-cp312-cp312-macosx_15_0_universal2.whl",
     "kaldifeat @ https://huggingface.co/csukuangfj/kaldifeat/resolve/main/macos/kaldifeat-1.25.4.dev20240329+cpu.torch2.2.2-cp312-cp312-macosx_12_0_universal2.whl",
     "sentencepiece>=0.1.97",
     "soundfile>=0.12.1",
